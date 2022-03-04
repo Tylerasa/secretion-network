@@ -1,0 +1,12 @@
+.wrapper{
+    max-width: 900px;
+    background-color: red;
+    margin: auto;
+    display: grid;
+    grid-template-columns: auto auto auto
+}
+
+.left-side{
+    background-color: azure;
+    grid-column: 1 / span 2;
+}
