@@ -18,6 +18,10 @@
 
 }
 
+.comments-main{
+    position: relative;
+}
+
 .comment-img{
 grid-column: 1 / span 2;
 
@@ -38,4 +42,19 @@ grid-column: 1 / span 2;
 .user-comment{
     font-weight: normal;
     padding-left: 10px;
+}
+
+.form{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+}
+
+.form-input{
+    flex-grow: 1;
+    outline: none;
+    padding: 20px;
+    font-family: 'Courgette', cursive;
+    font-family: 'Raleway', sans-serif;
 }

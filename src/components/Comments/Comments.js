@@ -28,6 +28,9 @@ const Comments = () => {
             <img src={profile} className="avatar" />
             username
           </div>
+          <form className="form">
+            <input placeholder="say something..." className="form-input" type="text" />
+          </form>
         </div>
       </div>
     </div>
