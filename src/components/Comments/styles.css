@@ -1,0 +1,41 @@
+.comments-modal{
+    z-index: 2;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-color: #000000e6;
+    display: flex;
+}
+
+.comment-card{
+    width: 70vw;
+    height: 80vh;
+    margin: auto;
+    background-color: white;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: auto auto auto
+
+}
+
+.comment-img{
+grid-column: 1 / span 2;
+
+}
+
+
+.comment-line{
+    background-color: white;
+    padding: 15px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    cursor: pointer;
+
+}
+
+.user-comment{
+    font-weight: normal;
+    padding-left: 10px;
+}
