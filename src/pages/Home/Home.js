@@ -8,6 +8,7 @@ const Home = () => {
       <div className="wrapper">
         <div className="left-side">
           <PostCard />
+          <PostCard />
         </div>
         <div>side</div>
       </div>

@@ -5,11 +5,15 @@ import "./styles.css";
 const PostCard = () => {
   return (
     <div className="post-card">
-      {/* <CustomLoader /> */}
+      <div className="post-card-header">
+        <img src={profile} className="avatar" />
+        username
+      </div>
       <img src={profile} className="post-image" />
-      <div>
+      <div className="post-card-body">
         <span className="username">username </span>
-        <span className="username">This is my post</span>
+        <span className="post-caption">This is my post</span>
+        <p className="view-comments">View all comments</p>
       </div>
     </div>
   );
