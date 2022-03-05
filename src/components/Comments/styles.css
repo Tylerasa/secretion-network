@@ -49,6 +49,8 @@ grid-column: 1 / span 2;
     bottom: 0;
     width: 100%;
     display: flex;
+    border-top: 1px solid #f3f3f3;
+
 }
 
 .form-input{
