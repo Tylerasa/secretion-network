@@ -19,7 +19,7 @@ const Comments = () => {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [clickState]);
+  }, [clickState, toggleComments]);
 
   return (
     <div onClick={() => setClickState(!clickState)} className="comments-modal">

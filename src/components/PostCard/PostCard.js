@@ -8,7 +8,6 @@ const PostCard = () => {
   const [showComments, toggleComments] = useContext(ShowContext);
 
   const handleClick = () => {
-    console.log("clicked");
     toggleComments(true);
   };
   return (
