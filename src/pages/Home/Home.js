@@ -7,7 +7,7 @@ import profile from "../../assets/images/profile.jpg";
 import "./styles.css";
 import { useNavigate } from "react-router-dom";
 const Home = () => {
-    const navigate = useNavigate()
+  const navigate = useNavigate();
   const [showComments, toggleComments] = useState(false);
   const [posts, setPosts] = useState([]);
   useEffect(() => {
@@ -24,7 +24,7 @@ const Home = () => {
         setPosts(response.data);
       })
       .catch(function (error) {
-          navigate("/")
+        navigate("/");
         console.log(error);
       });
   }, []);
@@ -40,8 +40,12 @@ const Home = () => {
             })}
           </div>
           <div className="right-side">
-            <div className="post-card-header">
-              <img src={profile} className="avatar" />
+            <div className="user-profile-wrapper">
+              <div className="user-profile">
+                <img src={profile} className="avatar-lg" />
+                username
+              </div>
+              <span className="logout">logout</span>
               {/* {showComments.post.username} */}
             </div>
           </div>
