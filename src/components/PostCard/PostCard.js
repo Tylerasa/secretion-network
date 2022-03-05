@@ -16,7 +16,7 @@ const PostCard = ({ post }) => {
         <img src={profile} className="avatar" />
         username
       </div>
-      <img src={post.image} className="post-image" />
+      <img src={post.image} alt={post.caption} className="post-image" />
       <div className="post-card-body">
         <span className="username">username </span>
         <span className="post-caption">{post.caption}</span>
