@@ -3,8 +3,11 @@ import React, { useEffect, useState } from "react";
 import Comments from "../../components/Comments/Comments";
 import PostCard from "../../components/PostCard/PostCard";
 import { ShowContext } from "../../components/showContext";
+import profile from "../../assets/images/profile.jpg";
 import "./styles.css";
+import { useNavigate } from "react-router-dom";
 const Home = () => {
+    const navigate = useNavigate()
   const [showComments, toggleComments] = useState(false);
   const [posts, setPosts] = useState([]);
   useEffect(() => {
@@ -21,6 +24,7 @@ const Home = () => {
         setPosts(response.data);
       })
       .catch(function (error) {
+          navigate("/")
         console.log(error);
       });
   }, []);
@@ -35,7 +39,12 @@ const Home = () => {
               return <PostCard post={ele} key={i} />;
             })}
           </div>
-          <div>side</div>
+          <div className="right-side">
+            <div className="post-card-header">
+              <img src={profile} className="avatar" />
+              {/* {showComments.post.username} */}
+            </div>
+          </div>
         </div>
       </div>
     </ShowContext.Provider>

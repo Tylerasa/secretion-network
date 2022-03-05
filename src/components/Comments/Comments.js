@@ -9,7 +9,6 @@ const Comments = () => {
   const [clickState, setClickState] = useState(false);
   const [content, setContent] = useState("");
   const cardRef = useRef();
-  console.log("id", showComments.post._id);
   useEffect(() => {
     function handleClickOutside(event) {
       if (cardRef.current && !cardRef.current.contains(event.target)) {
@@ -30,8 +29,6 @@ const Comments = () => {
     e.preventDefault();
     var postId = showComments.post._id;
     var userId = localStorage.getItem("my_user_id");
-
-    console.log("Sdsd");
     var data = JSON.stringify({
       content
     });
