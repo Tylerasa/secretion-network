@@ -8,7 +8,10 @@ const PostCard = ({ post }) => {
   const [showComments, toggleComments] = useContext(ShowContext);
 
   const handleClick = () => {
-    toggleComments(true);
+    toggleComments({
+      status: true,
+      post
+    });
   };
   return (
     <div className="post-card">

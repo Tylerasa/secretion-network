@@ -2,6 +2,7 @@ import React, { useContext, useRef, useEffect, useState } from "react";
 import "./styles.css";
 import profile from "../../assets/images/profile.jpg";
 import { ShowContext } from "../showContext";
+import UserComment from "./UserComment";
 
 const Comments = () => {
   const [showComments, toggleComments] = useContext(ShowContext);
@@ -9,9 +10,13 @@ const Comments = () => {
   const cardRef = useRef();
 
   useEffect(() => {
+    console.log(showComments);
     function handleClickOutside(event) {
       if (cardRef.current && !cardRef.current.contains(event.target)) {
-        toggleComments(false);
+        toggleComments({
+          status: false,
+          post: null
+        });
       }
     }
 
@@ -36,16 +41,11 @@ const Comments = () => {
         <div className="comments-main">
           <div className="post-card-header">
             <img src={profile} className="avatar" />
-            username
+            {showComments.post.username}
           </div>
-          <div className="comment-line">
-            <img src={profile} className="avatar" />
-            username<span className="user-comment">this is a comment</span>
-          </div>
-          <div className="comment-line">
-            <img src={profile} className="avatar" />
-            username
-          </div>
+          {showComments.post.comments.map((ele, i) => {
+            return <UserComment key={i} item={ele} />;
+          })}
           <form className="form">
             <input
               placeholder="say something..."

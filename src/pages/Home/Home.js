@@ -28,7 +28,7 @@ const Home = () => {
   return (
     <ShowContext.Provider value={[showComments, toggleComments]}>
       <div>
-        {showComments ? <Comments /> : null}
+        {showComments.status ? <Comments /> : null}
         <div className="header"></div>
         <div className="wrapper">
           <div className="left-side">
