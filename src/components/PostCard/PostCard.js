@@ -5,7 +5,7 @@ import { ShowContext } from "../../components/showContext";
 
 import "./styles.css";
 const PostCard = () => {
-  const { toggleComments } = useContext(ShowContext);
+  const [showComments, toggleComments] = useContext(ShowContext);
 
   const handleClick = () => {
     console.log("clicked");
