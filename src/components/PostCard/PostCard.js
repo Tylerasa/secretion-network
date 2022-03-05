@@ -29,7 +29,7 @@ const PostCard = ({ post }) => {
           </p>
         ) : (
           <p onClick={handleClick} className="view-comments">
-            No posts yet
+            No comments yet
           </p>
         )}
       </div>

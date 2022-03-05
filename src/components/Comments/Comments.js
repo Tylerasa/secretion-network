@@ -9,6 +9,7 @@ const Comments = () => {
   const [clickState, setClickState] = useState(false);
   const [content, setContent] = useState("");
   const cardRef = useRef();
+  console.log(showComments)
   useEffect(() => {
     function handleClickOutside(event) {
       if (cardRef.current && !cardRef.current.contains(event.target)) {
@@ -58,7 +59,7 @@ const Comments = () => {
         <div
           className="comment-img"
           style={{
-            background: `url(${profile})`,
+            background: `url(${showComments.post.image})`,
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center",
             backgroundSize: "cover"
