@@ -44,3 +44,9 @@
 .post-card-body{
     padding: 5px 10px;
 }
+
+@media only screen and (max-width: 768px) {
+    .post-card{
+    width: 100%;
+    }
+   }
