@@ -10,7 +10,6 @@ const Comments = () => {
   const cardRef = useRef();
 
   useEffect(() => {
-    console.log(showComments);
     function handleClickOutside(event) {
       if (cardRef.current && !cardRef.current.contains(event.target)) {
         toggleComments({

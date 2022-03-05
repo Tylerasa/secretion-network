@@ -18,7 +18,6 @@ const Home = () => {
 
     axios(config)
       .then(function (response) {
-        console.log(response.data);
         setPosts(response.data);
       })
       .catch(function (error) {

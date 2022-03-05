@@ -8,7 +8,6 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const handleSubmit = (e) => {
-    console.log("submitted");
     e.preventDefault();
     var data = JSON.stringify({
       username,
@@ -27,7 +26,6 @@ const Login = () => {
 
     axios(config)
       .then(function (response) {
-        console.log(response.data);
         localStorage.setItem("my_user_token", response.data.token);
         navigate("/home");
       })

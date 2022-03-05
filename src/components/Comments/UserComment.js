@@ -3,7 +3,6 @@ import axios from "axios";
 import "./styles.css";
 const UserComment = (item) => {
   const [comment, setComment] = useState(null);
-  console.log("item", item.item);
   useEffect(() => {
     var config = {
       method: "get",
@@ -15,7 +14,6 @@ const UserComment = (item) => {
 
     axios(config)
       .then(function (response) {
-        console.log(response.data);
         setComment(response.data);
       })
       .catch(function (error) {
