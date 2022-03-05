@@ -49,3 +49,12 @@ color: rgb(0, 57, 172);
     border-radius: 50%;
     margin-right: 10px;
 }
+
+
+.inner-header{
+    max-width: 900px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 550px;
+    text-align: right;
+}

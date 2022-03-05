@@ -6,9 +6,11 @@ import { ShowContext } from "../../components/showContext";
 import profile from "../../assets/images/profile.jpg";
 import "./styles.css";
 import { useNavigate } from "react-router-dom";
+import AddPost from "../../components/AddPost/AddPost";
 const Home = () => {
   const navigate = useNavigate();
   const [showComments, toggleComments] = useState(false);
+  const [showAddPosts, toggleAddPost] = useState(false);
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     var config = {
@@ -33,13 +35,18 @@ const Home = () => {
     localStorage.removeItem("my_user_token");
     localStorage.removeItem("my_user_id");
     localStorage.removeItem("my_user_name");
-    navigate("/")
+    navigate("/");
   };
   return (
     <ShowContext.Provider value={[showComments, toggleComments]}>
       <div>
         {showComments.status ? <Comments /> : null}
-        <div className="header"></div>
+        {showAddPosts ? <AddPost /> : null}
+        <div className="header">
+          <div onClick={() => toggleAddPost(true)} className="inner-header">
+            add post
+          </div>
+        </div>
         <div className="wrapper">
           <div className="left-side">
             {posts.map((ele, i) => {
