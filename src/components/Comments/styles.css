@@ -14,7 +14,9 @@
     background-color: white;
     border-radius: 5px;
     display: grid;
-    grid-template-columns: auto auto auto
+    /* grid-template-columns: auto auto auto */
+    grid-template-columns: 550px auto;
+
 
 }
 
@@ -23,7 +25,7 @@
 }
 
 .comment-img{
-grid-column: 1 / span 2;
+/* grid-column: 1 / span 2; */
 
 }
 
