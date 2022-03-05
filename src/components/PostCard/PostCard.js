@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 // import CustomLoader from "../CustomLoader/CustomLoader";
 import profile from "../../assets/images/profile.jpg";
+import { ShowContext } from "../../components/showContext";
+
 import "./styles.css";
-const PostCard = (clickView) => {
+const PostCard = () => {
+  const { toggleComments } = useContext(ShowContext);
+
   const handleClick = () => {
     console.log("clicked");
-    clickView(true);
+    toggleComments(true);
   };
   return (
     <div className="post-card">

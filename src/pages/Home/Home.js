@@ -1,23 +1,24 @@
-import React, { useState, createContext } from "react";
+import React, { useState, createContext, useContext } from "react";
 import Comments from "../../components/Comments/Comments";
 import PostCard from "../../components/PostCard/PostCard";
+import { ShowContext } from "../../components/showContext";
 import "./styles.css";
 const Home = () => {
-  const [showComments, toggleComments] = useState(false);
-  const ShowContext = createContext()
+ 
+  const { showComments } = useContext(ShowContext);
   return (
     <ShowContext.Provider value={showComments}>
-        <div>
-      {showComments ? <Comments /> : null}
-      <div className="header"></div>
-      <div className="wrapper">
-        <div className="left-side">
-          <PostCard />
-          <PostCard />
+      <div>
+        {showComments ? <Comments /> : null}
+        <div className="header"></div>
+        <div className="wrapper">
+          <div className="left-side">
+            <PostCard />
+            <PostCard />
+          </div>
+          <div>side</div>
         </div>
-        <div>side</div>
       </div>
-    </div>
     </ShowContext.Provider>
   );
 };
