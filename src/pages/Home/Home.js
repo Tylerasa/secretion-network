@@ -28,6 +28,13 @@ const Home = () => {
         console.log(error);
       });
   }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("my_user_token");
+    localStorage.removeItem("my_user_id");
+    localStorage.removeItem("my_user_name");
+    navigate("/")
+  };
   return (
     <ShowContext.Provider value={[showComments, toggleComments]}>
       <div>
@@ -43,10 +50,11 @@ const Home = () => {
             <div className="user-profile-wrapper">
               <div className="user-profile">
                 <img src={profile} className="avatar-lg" />
-                username
+                {localStorage.getItem("my_user_name")}
               </div>
-              <span className="logout">logout</span>
-              {/* {showComments.post.username} */}
+              <span onClick={handleLogout} className="logout">
+                logout
+              </span>
             </div>
           </div>
         </div>

@@ -28,6 +28,7 @@ const Login = () => {
       .then(function (response) {
         localStorage.setItem("my_user_token", response.data.token);
         localStorage.setItem("my_user_id", response.data.user._id);
+        localStorage.setItem("my_user_name", response.data.user.username);
         navigate("/home");
       })
       .catch(function (error) {
