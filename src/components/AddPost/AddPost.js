@@ -5,28 +5,21 @@ const AddPost = () => {
   const cardRef = useRef();
   const [clickState, setClickState] = useState(false);
   const [picture, setPicture] = useState(null);
-  var picker = document.getElementsByTagName("input")[0];
-
-  //   useEffect(() => {
-  //     function handleClickOutside(event) {
-  //       if (cardRef.current && !cardRef.current.contains(event.target)) {
-  //         toggleComments({
-  //           status: false,
-  //           post: null
-  //         });
-  //       }
-  //     }
-
-  //     document.addEventListener("mousedown", handleClickOutside);
-  //     return () => {
-  //       document.removeEventListener("mousedown", handleClickOutside);
-  //     };
-  //   }, [clickState, toggleComments]);
   useEffect(() => {
-    if (picker) {
-      picker.style.visibility = "hidden";
+    function handleClickOutside(event) {
+      if (cardRef.current && !cardRef.current.contains(event.target)) {
+        toggleComments({
+          status: false,
+          post: null
+        });
+      }
     }
-  }, []);
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [clickState, toggleComments]);
   function getFile(file) {
     setPicture(file);
   }
@@ -41,7 +34,11 @@ const AddPost = () => {
         >
           {!picture ? (
             <FileBase64 style={{ visibility: "collapse" }} onDone={getFile} />
-          ) : null}
+          ) : (
+            <span onClick={() => setPicture(null)} className="remove-button">
+              x
+            </span>
+          )}
           {/* click here to add a picture */}
         </div>
         <div className="comments-main">
