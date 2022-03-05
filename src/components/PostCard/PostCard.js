@@ -14,11 +14,11 @@ const PostCard = ({ post }) => {
     <div className="post-card">
       <div className="post-card-header">
         <img src={profile} className="avatar" />
-        username
+        {post.username}
       </div>
       <img src={post.image} alt={post.caption} className="post-image" />
       <div className="post-card-body">
-        <span className="username">username </span>
+        <span className="username">{post.username} </span>
         <span className="post-caption">{post.caption}</span>
         {post.comments.length > 0 ? (
           <p onClick={handleClick} className="view-comments">
