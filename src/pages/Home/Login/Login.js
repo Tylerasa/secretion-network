@@ -27,6 +27,7 @@ const Login = () => {
     axios(config)
       .then(function (response) {
         localStorage.setItem("my_user_token", response.data.token);
+        localStorage.setItem("my_user_id", response.data.user._id);
         navigate("/home");
       })
       .catch(function (error) {

@@ -3,13 +3,13 @@ import "./styles.css";
 import profile from "../../assets/images/profile.jpg";
 import { ShowContext } from "../showContext";
 import UserComment from "./UserComment";
-
+import axios from "axios";
 const Comments = () => {
   const [showComments, toggleComments] = useContext(ShowContext);
   const [clickState, setClickState] = useState(false);
   const [content, setContent] = useState("");
   const cardRef = useRef();
-
+  console.log("id", showComments.post._id);
   useEffect(() => {
     function handleClickOutside(event) {
       if (cardRef.current && !cardRef.current.contains(event.target)) {
@@ -28,12 +28,16 @@ const Comments = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    var postId = showComments.post._id;
+    var userId = localStorage.getItem("my_user_id");
+
+    console.log("Sdsd");
     var data = JSON.stringify({
       content
     });
     var config = {
       method: "post",
-      url: `${process.env.REACT_APP_BE}/posts/add-comment/${ele}/621fcf5bd7310d25814bb469`,
+      url: `${process.env.REACT_APP_BE}/posts/add-comment/${postId}/${userId}`,
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
