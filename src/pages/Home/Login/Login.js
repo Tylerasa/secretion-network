@@ -14,7 +14,7 @@ const Login = () => {
 
     var config = {
       method: "post",
-      url: "users/login",
+      url: `${process.env.REACT_APP_BE}/users/login`,
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json"
@@ -24,7 +24,9 @@ const Login = () => {
 
     axios(config)
       .then(function (response) {
-        console.log(JSON.stringify(response.data));
+        console.log(response.data);
+        localStorage.setItem("my_user_token", response.data.token);
+        navigate("/home");
       })
       .catch(function (error) {
         console.log(error);

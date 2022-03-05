@@ -8,7 +8,7 @@ const Home = () => {
   const [showComments, toggleComments] = useState(false);
   return (
     <ShowContext.Provider value={[showComments, toggleComments]}>
-      {/* <div>
+      <div>
         {showComments ? <Comments /> : null}
         <div className="header"></div>
         <div className="wrapper">
@@ -18,8 +18,7 @@ const Home = () => {
           </div>
           <div>side</div>
         </div>
-      </div> */}
-      <Login />
+      </div>
     </ShowContext.Provider>
   );
 };
