@@ -44,7 +44,7 @@ const Home = () => {
         {showAddPosts ? <AddPost /> : null}
         <div className="header">
           <div onClick={() => toggleAddPost(true)} className="inner-header">
-            add post
+            new post
           </div>
         </div>
         <div className="wrapper">
