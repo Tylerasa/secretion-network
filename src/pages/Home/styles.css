@@ -77,4 +77,11 @@
     width: 30px;
     height: 30px;
   }
+  .header {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .inner-header {
+    padding-right: 10px;
+  }
 }
