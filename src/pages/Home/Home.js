@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import Comments from "../../components/Comments/Comments";
 import PostCard from "../../components/PostCard/PostCard";
 import { ShowContext } from "../../components/showContext";
-import profile from "../../assets/images/profile.jpg";
 import "./styles.css";
 import { useNavigate } from "react-router-dom";
 import AddPost from "../../components/AddPost/AddPost";
@@ -12,7 +11,12 @@ const Home = () => {
   const [showComments, toggleComments] = useState(false);
   const [showAddPosts, toggleAddPost] = useState(false);
   const [posts, setPosts] = useState([]);
+  const [userName, setUsername] = useState("");
   useEffect(() => {
+    var token = localStorage.getItem("my_user_token");
+    var base64Url = token.split(".")[1];
+    var base64 = base64Url.replace("-", "+").replace("_", "/");
+    setUsername(JSON.parse(atob(base64)).username);
     var config = {
       method: "get",
       url: `${process.env.REACT_APP_BE}/posts`,
@@ -33,8 +37,6 @@ const Home = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("my_user_token");
-    localStorage.removeItem("my_user_id");
-    localStorage.removeItem("my_user_name");
     navigate("/");
   };
   return (
@@ -56,8 +58,7 @@ const Home = () => {
           <div className="right-side">
             <div className="user-profile-wrapper">
               <div className="user-profile">
-                <img src={profile} className="avatar-lg" />
-                {localStorage.getItem("my_user_name")}
+                {userName}
               </div>
               <span onClick={handleLogout} className="logout">
                 logout

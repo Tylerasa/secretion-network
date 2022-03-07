@@ -9,7 +9,7 @@ const Comments = () => {
   const [clickState, setClickState] = useState(false);
   const [content, setContent] = useState("");
   const cardRef = useRef();
-  console.log(showComments)
+  console.log(showComments);
   useEffect(() => {
     function handleClickOutside(event) {
       if (cardRef.current && !cardRef.current.contains(event.target)) {
@@ -29,7 +29,11 @@ const Comments = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     var postId = showComments.post._id;
-    var userId = localStorage.getItem("my_user_id");
+    var token = localStorage.getItem("my_user_token");
+    var base64Url = token.split(".")[1];
+    var base64 = base64Url.replace("-", "+").replace("_", "/");
+    var userId = JSON.parse(atob(base64)).id;
+
     var data = JSON.stringify({
       content
     });

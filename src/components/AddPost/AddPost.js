@@ -30,7 +30,11 @@ const AddPost = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    var userId = localStorage.getItem("my_user_id");
+    var token = localStorage.getItem("my_user_token");
+    var base64Url = token.split(".")[1];
+    var base64 = base64Url.replace("-", "+").replace("_", "/");
+    var userId = JSON.parse(atob(base64)).id
+
     var data = JSON.stringify({
       caption,
       image: picture.base64
