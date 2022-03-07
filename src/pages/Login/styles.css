@@ -34,4 +34,16 @@ button{
     font-family: 'Raleway', sans-serif;
     font-weight: bold;
     cursor: pointer;
+    margin-bottom: 10px;
 }
+
+.create-account{
+    color: white;
+    text-decoration: none;
+    float: right;
+}
+
+.create-account:hover{
+text-decoration: underline;
+}
+

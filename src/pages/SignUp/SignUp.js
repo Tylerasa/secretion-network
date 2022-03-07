@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import axios from "axios";
-import "./styles.css";
 import { useNavigate } from "react-router-dom";
-const Login = () => {
-  const navigate = useNavigate();
+const SignUp = () => {
+
+    const navigate = useNavigate();
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -50,10 +50,13 @@ const Login = () => {
           type="password"
         />
         <br />
-        <button>Click</button>
+        <button>register</button>
+        <a href="/" className="create-account">
+          already have an account
+        </a>
       </form>
     </div>
   );
 };
 
-export default Login;
+export default SignUp;
