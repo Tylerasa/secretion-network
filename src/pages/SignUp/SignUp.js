@@ -16,7 +16,7 @@ const SignUp = () => {
 
     var config = {
       method: "post",
-      url: `${process.env.REACT_APP_BE}/users/login`,
+      url: `${process.env.REACT_APP_BE}/users/register`,
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json"
