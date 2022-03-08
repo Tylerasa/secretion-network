@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-// import CustomLoader from "../CustomLoader/CustomLoader";
 import profile from "../../assets/images/profile.jpg";
 import { ShowContext } from "../../components/showContext";
 
