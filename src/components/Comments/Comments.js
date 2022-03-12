@@ -5,7 +5,11 @@ import { ShowContext } from "../showContext";
 import UserComment from "./UserComment";
 import axios from "axios";
 const Comments = () => {
-  const [showComments, toggleComments] = useContext(ShowContext);
+  const { comments } = useContext(ShowContext);
+  const [showComments, toggleComments] = comments
+  console.log(comments)
+
+  // const [showComments, toggleComments] = useContext(ShowContext);
   const [clickState, setClickState] = useState(false);
   const [content, setContent] = useState("");
   const cardRef = useRef();

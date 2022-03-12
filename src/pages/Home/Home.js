@@ -26,10 +26,10 @@ const Home = () => {
     };
 
     axios(config)
-      .then(function (response) {
+      .then(function(response) {
         setPosts(response.data);
       })
-      .catch(function (error) {
+      .catch(function(error) {
         navigate("/");
         console.log(error);
       });
@@ -40,7 +40,12 @@ const Home = () => {
     navigate("/");
   };
   return (
-    <ShowContext.Provider value={[showComments, toggleComments]}>
+    <ShowContext.Provider
+      value={{
+        comments: [showComments, toggleComments],
+        add: [showAddPosts, toggleAddPost]
+      }}
+    >
       <div>
         {showComments.status ? <Comments /> : null}
         {showAddPosts ? <AddPost /> : null}

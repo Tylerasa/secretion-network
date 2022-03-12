@@ -4,7 +4,8 @@ import { ShowContext } from "../../components/showContext";
 
 import "./styles.css";
 const PostCard = ({ post }) => {
-  const [showComments, toggleComments] = useContext(ShowContext);
+  const { comments } = useContext(ShowContext);
+  const [showComments, toggleComments] = comments;
 
   const handleClick = () => {
     toggleComments({
@@ -20,17 +21,19 @@ const PostCard = ({ post }) => {
       </div>
       <img src={post.image} alt={post.caption} className="post-image" />
       <div className="post-card-body">
-        <span className="username">{post.username} </span>
-        <span className="post-caption">{post.caption}</span>
-        {post.comments.length > 0 ? (
-          <p onClick={handleClick} className="view-comments">
-            View all comments
-          </p>
-        ) : (
-          <p onClick={handleClick} className="view-comments">
-            No comments yet
-          </p>
-        )}
+        <span className="username">
+          {post.username}{" "}
+        </span>
+        <span className="post-caption">
+          {post.caption}
+        </span>
+        {post.comments.length > 0
+          ? <p onClick={handleClick} className="view-comments">
+              View all comments
+            </p>
+          : <p onClick={handleClick} className="view-comments">
+              No comments yet
+            </p>}
       </div>
     </div>
   );
