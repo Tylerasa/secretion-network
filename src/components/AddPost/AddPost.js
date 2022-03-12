@@ -16,7 +16,7 @@ const AddPost = () => {
     () => {
       function handleClickOutside(event) {
         if (cardRef.current && !cardRef.current.contains(event.target)) {
-          toggleAddPost(!showAddPosts)
+          toggleAddPost(!showAddPosts);
         }
       }
       document.addEventListener("mousedown", handleClickOutside);
@@ -61,7 +61,7 @@ const AddPost = () => {
 
     axios(config)
       .then(function(response) {
-        console.log(JSON.stringify(response.data));
+        toggleAddPost(!showAddPosts);
       })
       .catch(function(error) {
         console.log(error);

@@ -7,9 +7,6 @@ import axios from "axios";
 const Comments = () => {
   const { comments } = useContext(ShowContext);
   const [showComments, toggleComments] = comments
-  console.log(comments)
-
-  // const [showComments, toggleComments] = useContext(ShowContext);
   const [clickState, setClickState] = useState(false);
   const [content, setContent] = useState("");
   const cardRef = useRef();

@@ -33,7 +33,7 @@ const Home = () => {
         navigate("/");
         console.log(error);
       });
-  }, []);
+  }, [showAddPosts]);
 
   const handleLogout = () => {
     localStorage.removeItem("my_user_token");
